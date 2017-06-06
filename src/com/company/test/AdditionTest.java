@@ -17,5 +17,12 @@ public class AdditionTest {
         System.out.println(a + " + " + b + " = " + result);
     }
 
-
+    @Test
+    public void test2(){
+        Addition addition = new Addition();
+        double a = 1.0;
+        double b = 3.0;
+        double result = addition.add(a, b);
+        System.out.println(a + " + " + b + " = " + result);
+    }
 }
