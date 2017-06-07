@@ -1,5 +1,23 @@
 language: java
 jdk:
  - oraclejdk8
+
+sudo: enabled
+dist: trusty
+
 script:
  - mvn clean verify
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  on:
+    branch: master
+
+#  provider: releases
+#  api_key: "GITHUB OAUTH TOKEN"
+#  file: "FILE TO UPLOAD"
+#  skip_cleanup: true
+#  on:
+#    tags: true
