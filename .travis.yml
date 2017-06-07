@@ -15,6 +15,7 @@ before_deploy: echo 'ready to deploy?'
 
 deploy:
   provider: releases
+  skip_cleanup: true
   api_key:
     secure: alk2BsdolUsT/AL21JASCyO6XzDN+OfzM0C6HdELHIYlmQKQ5IOZcXEiaP0yJHs0BkvvShMDTJURrwwUC3ScoBB+VqIrQKShU4wdNR7L9x3qU3ATxXScd/KdH1YFCek2itDSGgd6gbO3iaGJAREzCSTlcrVXuHLlM+uaJkiY6O+SfcbM2gV9hbakxZ94BT1D9CRwQtobJp62TtxeWqAmE5W8upN711CxzYrxZUX6rpm/okUQn0ply+trzYtd1kdIu8gGm3fw3GKeglWxz1SFJyCv9VnshJ7fyT2I2M/6b/HaLzZA6l6cUHpbwXZTTqsCFlidpRU9TGDwjQ9ifwXHJAJ7POoBkVMZDml3S2mT89BGmBJOsB7VZPQuGAJkk8oFw8R0muGBA6gl58zLyBldrnkf8Ep9CtpTsXoT/Pag370qVJ8iQo9NDVV9Y9TbwD7lsA/8+v0Hns889FwQ7KKLIw50dylkmuIieKzMh72o9mV44tTvJqgTvKQX+/KmloFwClywHf7oIg1XwiIHyEjeratsk+TSY5wn2Iy/BUVMqNdempN3ewyqxg8HDAIEk0i7IC8TfUCtaeuO26UOKzVSK7DQiYGC5g7F4Bht1Fmo72Xc0o0SHMxUlNnL4d/RcpdzUUS4FG1QCqKjaw81lsk+CXfnDYYmbCApym9mokguFdU=
   file: travis-ci-test-upload.jar
@@ -23,8 +24,6 @@ deploy:
 
 after_success:
   - echo -e "Starting to tag commit.\n"
-  - git config --global user.email "travis@travis-ci.org"
-  - git config --global user.name "Travis"
   # Add tag and push to master.
   - git tag -a v${TRAVIS_BUILD_NUMBER} -m "Travis build $TRAVIS_BUILD_NUMBER pushed a tag."
   - git push origin --tags
