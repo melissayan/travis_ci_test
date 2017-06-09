@@ -16,7 +16,7 @@ before_deploy:
   - git config --global user.name "travis-ci"
   # Add tag and push to master.
   - git tag -a v${TRAVIS_BUILD_NUMBER} -m "Travis build $TRAVIS_BUILD_NUMBER pushed a tag."
-  - git push origin --tags
+  - git push -q https://$TAGPERM@github.com/melissayan/travis_ci_test/ --tags
 
 deploy:
   provider: releases
