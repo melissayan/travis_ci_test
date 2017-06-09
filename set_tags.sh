@@ -2,6 +2,8 @@
 
 BRANCH="travis-branch"
 
+echo $TRAVIS_BRANCH
+
 if [ "$TRAVIS_BRANCH" == "$BRANCH" ]; then
   git config --global user.email "travis@travis-ci.org"
   git config --global user.name "travis-ci"
