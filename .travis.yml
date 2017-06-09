@@ -19,10 +19,8 @@ deploy:
   file:
     - target/travis-build-test-1.0-SNAPSHOT.jar
   on:
-    repo: melissayan/travis_ci_test
+    repo: melissayan/travis_ci_test/
+    branch: travis-ci
 
 after_success:
-  - git config --global user.email "travis@travis-ci.org"
-  - git config --global user.name "travis-ci"
-  - git tag -a v${TRAVIS_BUILD_NUMBER} -m "Travis build $TRAVIS_BUILD_NUMBER pushed a tag."
-  - git push origin --tags
+  - sh setTags.sh
