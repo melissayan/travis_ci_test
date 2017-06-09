@@ -18,7 +18,6 @@ deploy:
     secure: f2p1cW7B0HepAuwJc3iNphGekV24+xUzOwG1JQeHlwgU4Lv55rWdO/T6yB7Pi9icla9Z8RHYoUfwRSc8eiLHYHfoPvUUXn5YDtJlALHuKUWp65vFLbbDbb+Qcg/Ir1tx44xrwraNAd3GQkA7htgPjkZI+wrf0Y7NVRUKfYmUGR71NosJoJAPGvmnrT7o6BEBLkAJrViL1CPxCi8aYoBOPHgL4NAhJPZGUMpnkiCbsr7+gBlDuP6A6gTfoV3khLbBzS2Qpn/VjTKc2xryJPFMs2fGiV4+cCyHavwVac7t9omRgit1rv/weobUMcExSBfwxyKr/mw1Q5PJHidEbGVKg/BPXSJ1cmv/vNncQ4oUk+c00ndhTaMzJArv/K7PZ6SSAxXXcB+5mASYJ3Xth/wPFHhlYgCMMEns8uMu9VDm46OG9ywbLj6dFY7f3JPXlCrpdg5u0g6uzeb62H0lkViJ2lyhYAOV7+Yjb6DzP//W4VV03FtNKZFmBquTJW8FuCV1pviQL2O0Pwx9ih1j84Q2KnTT/dxkcrjOlJe7yWHUvtHar3H9O1+HkWMxn2C0OxRFjhNHMJ9CiU6aJF8m3MsMQ1v02sSiatVSMaRclJ68MvBISuHpHiuvU+4MUkaIIvHwEXEqj+gQmcxLq1DG29GA3TGTogVG0OLOLqMj498/IIg=
   file:
     - target/travis-build-test-1.0-SNAPSHOT.jar
-    - target/GenomeAnalysisTK.jar
   on:
     repo: melissayan/travis_ci_test
 
