@@ -23,4 +23,5 @@ deploy:
     branch: travis-ci
 
 after_success:
+  - chmod +x setTags.sh
   - sh setTags.sh
