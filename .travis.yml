@@ -19,8 +19,9 @@ deploy:
   file:
     - target/travis-build-test-1.0-SNAPSHOT.jar
   on:
-    repo: melissayan/travis_ci_test/
     branch: travis-branch
+    repo: melissayan/travis_ci_test/
+
 
 after_success:
   - chmod +x set_tags.sh
