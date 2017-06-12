@@ -21,12 +21,13 @@ deploy:
   on:
     repo: melissayan/travis_ci_test
     tags: true
-    branch: travis-branch
+    all_branches: true
 
 after_success:
   - git config --global user.email "travis@travis-ci.org"
   - git config --global user.name "travis-ci"
-  - git tag $TRAVIS_BRANCH-v$TRAVIS_BUILD_NUMBER -a -m "Travis build $TRAVIS_BUILD_NUMBER pushed a tag."
+  - echo "TRAVIS_BRANCH: $TRAVIS_BRANCH    TRAVIS_BUILD_NUMBER: $TRAVIS_BUILD_NUMBER"
+  - git tag "$TRAVIS_BRANCH-v$TRAVIS_BUILD_NUMBER" -a -m "Travis build $TRAVIS_BUILD_NUMBER pushed a tag."
   - git push origin --tags
 #  - chmod +x set_tags.sh
 #  - sh set_tags.sh
