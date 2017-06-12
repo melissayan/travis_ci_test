@@ -1,4 +1,4 @@
-package com.company.main;
+package main.java.com.company;
 
 /**
  * Created by Melissa on 6/6/2017.
@@ -11,4 +11,5 @@ public class Addition {
     public double add(double a, double b){
         return a + b;
     }
+
 }
