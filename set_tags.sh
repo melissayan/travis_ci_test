@@ -10,4 +10,5 @@ if [ "$TRAVIS_BRANCH" = "$BRANCH" ]; then
   git tag -a v${TRAVIS_BUILD_NUMBER} -m "Travis build $TRAVIS_BUILD_NUMBER pushed a tag."
   git push origin --tags
   git fetch origin
+  git add target/travis-build-test-1.0-SNAPSHOT.jar
 fi
