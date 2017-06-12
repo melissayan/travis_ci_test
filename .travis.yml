@@ -1,6 +1,6 @@
 language: java
 jdk:
-- oraclejdk8
+  - oraclejdk8
 
 sudo: enabled
 dist: trusty
@@ -19,6 +19,9 @@ deploy:
   on:
     branch: travis-branch
 
+after_deploy:
+  - "echo 'deployed'"
+
 after_success:
-- chmod +x set_tags.sh
-- sh set_tags.sh
+  - chmod +x set_tags.sh
+  - sh set_tags.sh
