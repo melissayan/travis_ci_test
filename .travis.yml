@@ -23,6 +23,10 @@ deploy:
     tags: true
     branch: travis-branch
 
-#after_success:
+after_success:
+  - git config --global user.email "travis@travis-ci.org"
+  - git config --global user.name "travis-ci"
+  - git tag $TRAVIS_BRANCH-v$TRAVIS_BUILD_NUMBER -a -m "Travis build $TRAVIS_BUILD_NUMBER pushed a tag."
+  - git push origin --tags
 #  - chmod +x set_tags.sh
 #  - sh set_tags.sh
