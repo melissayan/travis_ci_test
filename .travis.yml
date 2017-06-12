@@ -16,10 +16,12 @@ deploy:
   provider: releases
   api_key:
     secure: sfygIvGWNNW4B8iThUmEAjLxznIz6/6oUk+hW4dbKyZnCzA3kkqRnRFHoEiJ1FozvlYzQobk2nEHSxNztCmldIw5TUxSO6ebhS2GO+2I8SsniimA4NTawdyjSeDMmKfM/UQnMfFRACFlsOfQWcL7dU8ZbLdHfMgVnC8uR4m49k+By91JjkAjzaFM+DeWClyxxgkXgxMFaQBqrs0tcRC4HDEzT11gKNqITywhV3LPU5zUphrq1h0cP8rMVP7NWoNEKLnMdXIlWdSB6XkeypxivufY5+zMk0IUqtDd90nwZyFcc/BHLj870vpccuQnsOC+UW60K4JKDXK1VBP7sDZYwVHbOoQsWI2Or1sK0AxCjgHfRBvjqI4Pu28H26cxQhmk6saMRbCdAG9s1+1dYd4KcXkQsn5qmO2naAD/mDWPw8Hhz7FErAVzKavNyD6Eh6aSd9bLrgS5bDBUVWxAab6GsCUiFk3ggaPYfHEF05JWq4Rk91IhReGgQgu8y67J0Wh3KRBB75d6ucHMFcte0gZTojHs2PfaSLOyV/Md4NwsDE8guLHL2thk/3s99f+IcnPjiG6PO8A7uSGuEfGsCbmyBE3o1SoSg8OBHOBp9tdCKQ3xjtLtXLYDdDiqQCRi/KvbKXzxCvlOg2jd1dH2ttFWKzGjseC1iQCg74GMq7JGglo=
+  file_glob: true
   file: target/travis-build-test-1.0-SNAPSHOT.jar
   on:
+    repo: melissayan/travis_ci_test
     tags: true
-#    branch: travis-branch
+    branch: travis-branch
 
 #after_success:
 #  - chmod +x set_tags.sh
