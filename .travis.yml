@@ -1,29 +1,24 @@
 language: java
 jdk:
-  - oraclejdk8
+- oraclejdk8
 
 sudo: enabled
 dist: trusty
 
 script:
-  - mvn clean verify
+- mvn clean verify
 
 notifications:
   email: true
 
 deploy:
   provider: releases
-  skip_cleanup: true
   api_key:
-    secure: f2p1cW7B0HepAuwJc3iNphGekV24+xUzOwG1JQeHlwgU4Lv55rWdO/T6yB7Pi9icla9Z8RHYoUfwRSc8eiLHYHfoPvUUXn5YDtJlALHuKUWp65vFLbbDbb+Qcg/Ir1tx44xrwraNAd3GQkA7htgPjkZI+wrf0Y7NVRUKfYmUGR71NosJoJAPGvmnrT7o6BEBLkAJrViL1CPxCi8aYoBOPHgL4NAhJPZGUMpnkiCbsr7+gBlDuP6A6gTfoV3khLbBzS2Qpn/VjTKc2xryJPFMs2fGiV4+cCyHavwVac7t9omRgit1rv/weobUMcExSBfwxyKr/mw1Q5PJHidEbGVKg/BPXSJ1cmv/vNncQ4oUk+c00ndhTaMzJArv/K7PZ6SSAxXXcB+5mASYJ3Xth/wPFHhlYgCMMEns8uMu9VDm46OG9ywbLj6dFY7f3JPXlCrpdg5u0g6uzeb62H0lkViJ2lyhYAOV7+Yjb6DzP//W4VV03FtNKZFmBquTJW8FuCV1pviQL2O0Pwx9ih1j84Q2KnTT/dxkcrjOlJe7yWHUvtHar3H9O1+HkWMxn2C0OxRFjhNHMJ9CiU6aJF8m3MsMQ1v02sSiatVSMaRclJ68MvBISuHpHiuvU+4MUkaIIvHwEXEqj+gQmcxLq1DG29GA3TGTogVG0OLOLqMj498/IIg=
-  file:
-    - target/travis-build-test-1.0-SNAPSHOT.jar
+    secure: sfygIvGWNNW4B8iThUmEAjLxznIz6/6oUk+hW4dbKyZnCzA3kkqRnRFHoEiJ1FozvlYzQobk2nEHSxNztCmldIw5TUxSO6ebhS2GO+2I8SsniimA4NTawdyjSeDMmKfM/UQnMfFRACFlsOfQWcL7dU8ZbLdHfMgVnC8uR4m49k+By91JjkAjzaFM+DeWClyxxgkXgxMFaQBqrs0tcRC4HDEzT11gKNqITywhV3LPU5zUphrq1h0cP8rMVP7NWoNEKLnMdXIlWdSB6XkeypxivufY5+zMk0IUqtDd90nwZyFcc/BHLj870vpccuQnsOC+UW60K4JKDXK1VBP7sDZYwVHbOoQsWI2Or1sK0AxCjgHfRBvjqI4Pu28H26cxQhmk6saMRbCdAG9s1+1dYd4KcXkQsn5qmO2naAD/mDWPw8Hhz7FErAVzKavNyD6Eh6aSd9bLrgS5bDBUVWxAab6GsCUiFk3ggaPYfHEF05JWq4Rk91IhReGgQgu8y67J0Wh3KRBB75d6ucHMFcte0gZTojHs2PfaSLOyV/Md4NwsDE8guLHL2thk/3s99f+IcnPjiG6PO8A7uSGuEfGsCbmyBE3o1SoSg8OBHOBp9tdCKQ3xjtLtXLYDdDiqQCRi/KvbKXzxCvlOg2jd1dH2ttFWKzGjseC1iQCg74GMq7JGglo=
+  file: target/travis-build-test-1.0-SNAPSHOT.jar
   on:
-    tags: true
     branch: travis-branch
-    repo: melissayan/travis_ci_test/
-
 
 after_success:
-  - chmod +x set_tags.sh
-  - sh set_tags.sh
+- chmod +x set_tags.sh
+- sh set_tags.sh
