@@ -25,7 +25,7 @@ deploy:
   file: target/travis-build-test-1.0-SNAPSHOT.jar
   on:
     repo: melissayan/travis_ci_test
-    tags: true
+    #tags: true
     all_branches: true
 
 after_success:
@@ -33,6 +33,7 @@ after_success:
   - git config --global user.name "travis-ci"
   - echo "$TRAVIS_BUILD_NUMBER"
   - git tag "v$TRAVIS_BUILD_NUMBER" -a -m "Travis build $TRAVIS_BUILD_NUMBER pushed a tag."
+  -  git commit -m "branch update message"
   - git push origin --tags
 #  - chmod +x set_tags.sh
 #  - sh set_tags.sh
