@@ -1,6 +1,6 @@
-package com.company.test;
+package test.java.com.company;
 
-import com.company.main.Addition;
+import main.java.com.company.Addition;
 import org.junit.Test;
 
 /**

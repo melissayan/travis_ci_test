@@ -30,7 +30,7 @@
                     <configuration>
                         <archive>
                             <manifest>
-                                <mainClass>com.company.main.Addition</mainClass>
+                                <mainClass>main.java.com.company.Addition</mainClass>
                             </manifest>
                         </archive>
                     </configuration>
