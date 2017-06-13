@@ -25,8 +25,8 @@ deploy:
   file: target/travis-build-test-1.0-SNAPSHOT.jar
   on:
     repo: melissayan/travis_ci_test
-#    tags: true
- #   all_branches: true
+    tags: true
+    all_branches: true
 
 after_success:
   #- git config --global user.email "travis@travis-ci.org"
