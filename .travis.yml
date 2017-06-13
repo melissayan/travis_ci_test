@@ -35,5 +35,6 @@ after_success:
   - git tag v$TRAVIS_BUILD_NUMBER -a -m "Travis build $TRAVIS_BUILD_NUMBER pushed a tag."
   #- git commit -m "branch update message"
   - git push origin --tags
+  - git fetch origin
   #- chmod +x set_tags.sh
   #- sh set_tags.sh
