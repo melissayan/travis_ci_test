@@ -6,7 +6,8 @@ sudo: enabled
 dist: trusty
 
 script:
-  - mvn clean verify
+  #- mvn clean verify
+  - mvn -Djar.finalName=variantQC -Dversion=0.0.1 clean verify
 
 notifications:
   email: true
