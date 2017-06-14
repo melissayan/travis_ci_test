@@ -1,41 +1,34 @@
 language: java
 jdk:
-  - oraclejdk8
+- oraclejdk8
 
 sudo: enabled
 dist: trusty
 
 script:
-- mvn clean verify
+  - mvn clean verify
 
 notifications:
   email: true
 
 branches:
   only:
-#    -travis-branch
-    - master
-    - /^v\d+\.\d+\.\d+$/
+  - master
+  - "/^v\\d+\\.\\d+\\.\\d+$/"
 
 deploy:
   skip_cleanup: true
   provider: releases
   api_key:
-    secure: sfygIvGWNNW4B8iThUmEAjLxznIz6/6oUk+hW4dbKyZnCzA3kkqRnRFHoEiJ1FozvlYzQobk2nEHSxNztCmldIw5TUxSO6ebhS2GO+2I8SsniimA4NTawdyjSeDMmKfM/UQnMfFRACFlsOfQWcL7dU8ZbLdHfMgVnC8uR4m49k+By91JjkAjzaFM+DeWClyxxgkXgxMFaQBqrs0tcRC4HDEzT11gKNqITywhV3LPU5zUphrq1h0cP8rMVP7NWoNEKLnMdXIlWdSB6XkeypxivufY5+zMk0IUqtDd90nwZyFcc/BHLj870vpccuQnsOC+UW60K4JKDXK1VBP7sDZYwVHbOoQsWI2Or1sK0AxCjgHfRBvjqI4Pu28H26cxQhmk6saMRbCdAG9s1+1dYd4KcXkQsn5qmO2naAD/mDWPw8Hhz7FErAVzKavNyD6Eh6aSd9bLrgS5bDBUVWxAab6GsCUiFk3ggaPYfHEF05JWq4Rk91IhReGgQgu8y67J0Wh3KRBB75d6ucHMFcte0gZTojHs2PfaSLOyV/Md4NwsDE8guLHL2thk/3s99f+IcnPjiG6PO8A7uSGuEfGsCbmyBE3o1SoSg8OBHOBp9tdCKQ3xjtLtXLYDdDiqQCRi/KvbKXzxCvlOg2jd1dH2ttFWKzGjseC1iQCg74GMq7JGglo=
-  file_glob: true
+    secure: mgErM3Kw0IM2MDf41/74DqvsUQXgW1J4tupm+yep2OpyAVvMD+o6VoNxK2hxoZwcimTbH3LcDOFO0MlEEc7qaZGBg3iB78V6ZrD9z2aP7PZE5JDeIc1q0jRXTfq/F4p+9CG9U2RBYGZCSrTc36mt25ocLRqQwChCKYjMLRX6R5t4AU93bCp5pBr3aYbpXRNoJz3eT7EeHLMvxy81BPnw5ZUETlyWp4Jnprv1+klIL6SYppkEuSbmSrcJuv3309A0rJCnudUKs57Ut9ciJ1S2tvVm/UxjOk8HDVK9Z535tdQgZqqWE9M5QQTJiDpUHZzyR86dTvgAm5qUlwHw/Y/l2U7x4YcE/BadCFN8QdzXV3J7DxNmjXKhAUgMM7bttoFqw+oi8kcyDEK4pDhboCB6GJrN9WDEghzGbyxH+kA1mAxgz4Pr1ez3J3mIVwoKb58l6pj5vnVjA0qIFlL4qfZoX74RGJFeZoHim5V1gDu8UFPGXOsrtdYKDexUblpC69uUUTDcEyHsKz2vKEqRVf/19/voOupjH2iKK5F+GGA+mtQOr9NWokNB1wABpn/82ZriR8UFQ9FHYor8IuPuNpGfw3xmCFdyX6BXwDSK1h0Zz24/6yP9FYMdAzjzur/H8uaSTdGD0asgEERIQX93pXSgmIFe5F5mFi/vcYReWVnQev0=
   file: target/travis-build-test-1.0-SNAPSHOT.jar
   on:
     repo: melissayan/travis_ci_test
-    tags: true
-    all_branches: true
+    branch: travis-branch
 
 after_success:
   - git config --global user.email "travis@travis-ci.org"
   - git config --global user.name "travis-ci"
   - echo "$TRAVIS_BUILD_NUMBER"
   - git tag v$TRAVIS_BUILD_NUMBER -a -m "Travis build $TRAVIS_BUILD_NUMBER pushed a tag."
-  #- git commit -m "branch update message"
   - git push origin --tags
-  #- git fetch origin
-  #- chmod +x set_tags.sh
-  #- sh set_tags.sh
