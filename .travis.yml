@@ -11,10 +11,10 @@ script:
 notifications:
   email: true
 
-#branches:
-#  only:
+branches:
+  only:
 #    -travis-branch
-#    -master
+    - master
 
 deploy:
   skip_cleanup: true
