@@ -11,10 +11,10 @@ script:
 notifications:
   email: true
 
-branches:
-  only:
+#branches:
+  #only:
   #- master
-  - "/^v\\d+\\.\\d+\\.\\d+$/"
+  #- "/^v\\d+\\.\\d+\\.\\d+$/"
 
 deploy:
   skip_cleanup: true
