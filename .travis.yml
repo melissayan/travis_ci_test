@@ -7,7 +7,8 @@ dist: trusty
 
 script:
   #- mvn clean verify
-  - mvn -Djar.finalName=variantQC -Dversion=0.0.1 clean verify
+  - export $TRAVIS_TAG=0.0.2
+  - mvn -Djar.finalName=variantQC -Dversion=$TRAVIS_TAG clean verify
 
 notifications:
   email: true
@@ -37,5 +38,5 @@ deploy:
 after_success:
   - echo $TRAVIS_TAG
   - echo $TRAVIS_BUILD_NUMBER
-  - git tag v$TRAVIS_BUILD_NUMBER -a -m "Travis build $TRAVIS_BUILD_NUMBER pushed a tag."
+  - git tag v$TRAVIS_TAG -a -m "Travis build $TRAVIS_BUILD_NUMBER pushed a tag."
   - git push origin --tags
