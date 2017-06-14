@@ -19,8 +19,8 @@ notifications:
 before_deploy:
   - echo $TRAVIS_TAG
   - echo "$TRAVIS_BUILD_NUMBER"
-  - export $JARNAME=variantQC
-  - export $VERSION=$TRAVIS_TAG
+  - export $JARNAME="variantQC"
+  - export $VERSION="$TRAVIS_TAG"
   - export $JARFILE="$JARNAME-$VERSION.jar"
   - echo $JARFILE
   - mvn -Djar.finalName=$JARNAME -Dversion=$VERSION clean verify
