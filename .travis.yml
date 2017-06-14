@@ -7,7 +7,6 @@ dist: trusty
 
 script:
   #- mvn clean verify
-  - export $TRAVIS_TAG=0.0.2
   - mvn -Djar.finalName=variantQC -Dversion=$TRAVIS_TAG clean verify
 
 notifications:
