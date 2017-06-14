@@ -16,6 +16,9 @@ notifications:
   #- master
   #- "/^v\\d+\\.\\d+\\.\\d+$/"
 
+before_deploy:
+  - echo $TRAVIS_TAG
+
 deploy:
   skip_cleanup: true
   provider: releases
@@ -29,6 +32,6 @@ deploy:
 after_success:
   #- git config --global user.email "travis@travis-ci.org"
   #- git config --global user.name "travis-ci"
-  #- echo "$TRAVIS_BUILD_NUMBER"
-  #- git tag v$TRAVIS_BUILD_NUMBER -a -m "Travis build $TRAVIS_BUILD_NUMBER pushed a tag."
+  - echo "$TRAVIS_BUILD_NUMBER"
+  - git tag v$TRAVIS_BUILD_NUMBER -a -m "Travis build $TRAVIS_BUILD_NUMBER pushed a tag."
   - git push origin --tags
