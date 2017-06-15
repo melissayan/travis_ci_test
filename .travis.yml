@@ -36,7 +36,7 @@ deploy:
     repo: melissayan/travis_ci_test
     branch: travis-branch
 
-after_deploy:
+after_success:
   - echo $TRAVIS_TAG
   - echo $TRAVIS_BUILD_NUMBER
   - git tag v$TRAVIS_BUILD_NUMBER -a -m "Travis build $TRAVIS_BUILD_NUMBER pushed a tag."
