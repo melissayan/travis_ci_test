@@ -12,7 +12,6 @@ script:
   - export JARNAME="variantQC"
   - export VERSION="$TRAVIS_TAG"
   - export JARFILE="$JARNAME-$VERSION.jar"
-  - echo $VERSION
   - echo $JARFILE
   - mvn -Djar.finalName=$JARNAME -Dversion=$VERSION clean verify
 
