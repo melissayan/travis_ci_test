@@ -5,6 +5,9 @@ jdk:
 sudo: enabled
 dist: trusty
 
+notifications:
+  email: true
+
 script:
   - export JARNAME="variantQC"
   - export VERSION="$TRAVIS_TAG"
@@ -13,8 +16,11 @@ script:
   - echo $JARFILE
   - mvn -Djar.finalName=$JARNAME -Dversion=$VERSION clean verify
 
-notifications:
-  email: true
+after_success:
+  - echo $TRAVIS_TAG
+  - echo $TRAVIS_BUILD_NUMBER
+  - git tag v$TRAVIS_BUILD_NUMBER -a -m "Travis build $TRAVIS_BUILD_NUMBER pushed a tag."
+  - git push origin --tags
 
 before_deploy:
   - echo $TRAVIS_TAG
@@ -31,8 +37,3 @@ deploy:
     repo: melissayan/travis_ci_test
     branch: travis-branch
 
-after_success:
-  - echo $TRAVIS_TAG
-  - echo $TRAVIS_BUILD_NUMBER
-  - git tag v$TRAVIS_BUILD_NUMBER -a -m "Travis build $TRAVIS_BUILD_NUMBER pushed a tag."
-  - git push origin --tags
