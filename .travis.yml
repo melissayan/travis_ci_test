@@ -6,7 +6,11 @@ sudo: enabled
 dist: trusty
 
 script:
-  #- mvn clean verify
+  - export JARNAME="variantQC"
+  - export VERSION="$TRAVIS_TAG"
+  - export JARFILE="$JARNAME-$VERSION.jar"
+  - echo $JARFILE
+  - mvn -Djar.finalName=$JARNAME -Dversion=$VERSION clean verify
 
 notifications:
   email: true
@@ -19,11 +23,7 @@ notifications:
 before_deploy:
   - echo $TRAVIS_TAG
   - echo "$TRAVIS_BUILD_NUMBER"
-  - export JARNAME="variantQC"
-  - export VERSION="$TRAVIS_TAG"
-  - export JARFILE="$JARNAME-$VERSION.jar"
-  - echo $JARFILE
-  - mvn -Djar.finalName=$JARNAME -Dversion=$VERSION clean verify
+
 
 #  - git tag v$TRAVIS_BUILD_NUMBER -a -m "Travis build $TRAVIS_BUILD_NUMBER pushed a tag."
 #  - git push origin --tags
@@ -41,8 +41,6 @@ deploy:
     branch: travis-branch
 
 after_deploy:
-  - git config --global user.email "travis@travis-ci.org"
-  - git config --global user.name "travis-ci"
   - echo $TRAVIS_TAG
   - echo $TRAVIS_BUILD_NUMBER
   - git tag v$TRAVIS_BUILD_NUMBER -a -m "Travis build $TRAVIS_BUILD_NUMBER pushed a tag."
