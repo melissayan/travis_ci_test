@@ -10,10 +10,7 @@ notifications:
 
 script:
   - export JARNAME="variantQC"
-  - export VERSION="$TRAVIS_TAG"
-  - export JARFILE="$JARNAME-$VERSION.jar"
-  - echo $JARFILE
-  - mvn -Djar.finalName=$JARNAME -Dversion=$VERSION clean verify
+  - mvn -Djar.finalName=$JARNAME clean verify
 
 after_success:
   - echo $TRAVIS_TAG
@@ -24,6 +21,10 @@ after_success:
 before_deploy:
   - echo $TRAVIS_TAG
   - echo "$TRAVIS_BUILD_NUMBER"
+  - export VERSION="$TRAVIS_TAG"
+  - export JARFILE="$JARNAME-v$VERSION.jar"
+  - echo "$JARNAME and $JARFILE"
+  - mv target/$JARNAME.jar target/$JARFILE
 
 deploy:
   skip_cleanup: true
