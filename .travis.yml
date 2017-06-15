@@ -37,7 +37,6 @@ deploy:
     - target/$JARFILE
 #  tag_name: $TRAVIS_TAG
   on:
-    tags: true
     repo: melissayan/travis_ci_test
     branch: travis-branch
 
