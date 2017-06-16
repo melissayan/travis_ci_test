@@ -13,7 +13,7 @@ script:
   - export VERSION=""
   - mvn -Djar.finalName=$JARNAME -Dversion=$VERSION clean verify
 
-before_deploy:
+after_success:
   - echo "$TRAVIS_TAG and $TRAVIS_BUILD_NUMBER"
   - export JARFILE="$JARNAME-v$VERSION.jar"
   - echo "$JARNAME and $JARFILE"
