@@ -11,7 +11,10 @@ notifications:
 
 script:
   - export JARNAME="variantQC"
-  - mvn -Djar.finalName=$JARNAME clean verify
+  - export VERSION=""
+  - export JARFILE="$JARNAME-$VERSION.jar"
+  - echo $JARFILE
+  - mvn -Djar.finalName=$JARNAME -Dversion=$VERSION clean verify
 
 after_success:
   - echo "$TRAVIS_TAG and $TRAVIS_BUILD_NUMBER"
@@ -19,9 +22,8 @@ after_success:
   - git push origin --tags
 
 before_deploy:
-  - echo $TRAVIS_TAG
-  - echo "$TRAVIS_BUILD_NUMBER"
-  - export VERSION="$TRAVIS_TAG"
+  - echo "$TRAVIS_TAG and $TRAVIS_BUILD_NUMBER"
+#  - export VERSION="$TRAVIS_TAG"
   - export JARFILE="$JARNAME-v$VERSION.jar"
   - echo "$JARNAME and $JARFILE"
   - mv target/$JARNAME.jar target/$JARFILE
