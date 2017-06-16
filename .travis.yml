@@ -10,11 +10,11 @@ notifications:
 
 script:
   - export JARNAME="variantQC"
-  - mvn -Djar.finalName=$JARNAME clean verify
+  - export VERSION=""
+  - mvn -Djar.finalName=$JARNAME -Dversion=$VERSION clean verify
 
 before_deploy:
   - echo "$TRAVIS_TAG and $TRAVIS_BUILD_NUMBER"
-  - export VERSION="$TRAVIS_TAG"
   - export JARFILE="$JARNAME-v$VERSION.jar"
   - echo "$JARNAME and $JARFILE"
   - cp target/$JARNAME.jar target/$JARFILE

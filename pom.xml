@@ -20,7 +20,7 @@
     </dependencies>
 
     <build>
-        <finalName>${jar.finalName}</finalName>
+        <finalName>${jar.finalName}-${version}</finalName>
         <pluginManagement>
             <plugins>
                 <plugin>
