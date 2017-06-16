@@ -23,8 +23,7 @@ after_success:
   - cp target/$JARNAME-$VERSION.jar target/$JARFILE
   - echo "$TRAVIS_TAG and $TRAVIS_BUILD_NUMBER"
   - git tag v$TRAVIS_BUILD_NUMBER -a -m "Travis build $TRAVIS_BUILD_NUMBER pushed a tag."
-  #- git push origin -
--tags
+  #- git push origin --tags
   - git push origin v$TRAVIS_BUILD_NUMBER
 
 deploy:
@@ -44,4 +43,4 @@ after_deploy:
 
  branches:
    except:
-     - /^*-v[0-9]/
+      - /^*-v[0-9]/
