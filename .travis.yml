@@ -2,31 +2,28 @@ language: java
 jdk:
 - oraclejdk8
 
-sudo: required
+sudo: enabled
 dist: trusty
-group: edge
 
 notifications:
   email: true
 
 script:
   - export JARNAME="variantQC"
-  - export VERSION=""
+  - export VERSION="$TRAVIS_TAG"
   - export JARFILE="$JARNAME-$VERSION.jar"
   - echo $JARFILE
   - mvn -Djar.finalName=$JARNAME -Dversion=$VERSION clean verify
 
 after_success:
-  - echo "$TRAVIS_TAG and $TRAVIS_BUILD_NUMBER"
+  - echo $TRAVIS_TAG
+  - echo $TRAVIS_BUILD_NUMBER
   - git tag v$TRAVIS_BUILD_NUMBER -a -m "Travis build $TRAVIS_BUILD_NUMBER pushed a tag."
   - git push origin --tags
 
 before_deploy:
-  - echo "$TRAVIS_TAG and $TRAVIS_BUILD_NUMBER"
-#  - export VERSION="$TRAVIS_TAG"
-  - export JARFILE="$JARNAME-v$VERSION.jar"
-  - echo "$JARNAME and $JARFILE"
-  - mv target/$JARNAME.jar target/$JARFILE
+  - echo $TRAVIS_TAG
+  - echo "$TRAVIS_BUILD_NUMBER"
 
 deploy:
   skip_cleanup: true
@@ -38,4 +35,3 @@ deploy:
   on:
     repo: melissayan/travis_ci_test
     branch: travis-branch
-
