@@ -17,7 +17,7 @@ before_deploy:
   - echo "$TRAVIS_TAG and $TRAVIS_BUILD_NUMBER"
   - export JARFILE="$JARNAME-v$VERSION.jar"
   - echo "$JARNAME and $JARFILE"
-  - cp target/$JARNAME.jar target/$JARFILE
+  - cp target/$JARNAME-$VERSION.jar target/$JARFILE
 
 deploy:
   skip_cleanup: true
@@ -25,7 +25,7 @@ deploy:
   api_key:
     secure: mgErM3Kw0IM2MDf41/74DqvsUQXgW1J4tupm+yep2OpyAVvMD+o6VoNxK2hxoZwcimTbH3LcDOFO0MlEEc7qaZGBg3iB78V6ZrD9z2aP7PZE5JDeIc1q0jRXTfq/F4p+9CG9U2RBYGZCSrTc36mt25ocLRqQwChCKYjMLRX6R5t4AU93bCp5pBr3aYbpXRNoJz3eT7EeHLMvxy81BPnw5ZUETlyWp4Jnprv1+klIL6SYppkEuSbmSrcJuv3309A0rJCnudUKs57Ut9ciJ1S2tvVm/UxjOk8HDVK9Z535tdQgZqqWE9M5QQTJiDpUHZzyR86dTvgAm5qUlwHw/Y/l2U7x4YcE/BadCFN8QdzXV3J7DxNmjXKhAUgMM7bttoFqw+oi8kcyDEK4pDhboCB6GJrN9WDEghzGbyxH+kA1mAxgz4Pr1ez3J3mIVwoKb58l6pj5vnVjA0qIFlL4qfZoX74RGJFeZoHim5V1gDu8UFPGXOsrtdYKDexUblpC69uUUTDcEyHsKz2vKEqRVf/19/voOupjH2iKK5F+GGA+mtQOr9NWokNB1wABpn/82ZriR8UFQ9FHYor8IuPuNpGfw3xmCFdyX6BXwDSK1h0Zz24/6yP9FYMdAzjzur/H8uaSTdGD0asgEERIQX93pXSgmIFe5F5mFi/vcYReWVnQev0=
   file: #target/travis-build-test-1.0-SNAPSHOT.jar
-    - target/$JARFILE
+    - target/$JARFILE-$VERSION
     - target/$JARNAME.jar
   on:
     repo: melissayan/travis_ci_test
