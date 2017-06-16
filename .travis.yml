@@ -19,7 +19,9 @@ after_success:
   - echo "$JARNAME and $JARFILE"
   - cp target/$JARNAME-$VERSION.jar target/$JARFILE
   - echo "$TRAVIS_TAG and $TRAVIS_BUILD_NUMBER"
-  - git tag v$TRAVIS_BUILD_NUMBER -a -m "Travis build $TRAVIS_BUILD_NUMBER pushed a tag."
+  - echo "try to re-tag v98.2"
+#  - git tag v$TRAVIS_BUILD_NUMBER -a -m "Travis build $TRAVIS_BUILD_NUMBER pushed a tag."
+  - git tag v98.2 -a -m "Travis build $TRAVIS_BUILD_NUMBER pushed a tag."
   - git commit -m "2 jars"
   - git push origin --tags
 
