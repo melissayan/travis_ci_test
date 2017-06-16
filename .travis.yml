@@ -14,6 +14,7 @@ script:
   - mvn -Djar.finalName=$JARNAME -Dversion=$VERSION clean verify
 
 after_success:
+  - git describe --tags $(git rev-list --tags --max-count=1)
   - echo "$TRAVIS_TAG and $TRAVIS_BUILD_NUMBER"
   - export JARFILE="$JARNAME-v$VERSION.jar"
   - echo "$JARNAME and $JARFILE"
