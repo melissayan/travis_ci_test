@@ -4,6 +4,7 @@ jdk:
 
 sudo: enabled
 dist: trusty
+group: edge
 
 notifications:
   email: true
