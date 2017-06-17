@@ -36,7 +36,7 @@ deploy:
   on:
     repo: melissayan/travis_ci_test
     branch: travis-branch
-    tags:true
+    tags: true
 
 after_deploy:
   - echo "$TRAVIS_TAG and $TRAVIS_BUILD_NUMBER"
