@@ -36,11 +36,10 @@ deploy:
   on:
     repo: melissayan/travis_ci_test
     branch: travis-branch
-#    tags: true
 
 after_deploy:
   - echo "$TRAVIS_TAG and $TRAVIS_BUILD_NUMBER"
 
-#branches:
-#  except:
-#    - /^*-v[0-9]/
+branches:
+  except:
+    - /^*-v[0-9]/
