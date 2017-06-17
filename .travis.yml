@@ -41,6 +41,6 @@ deploy:
 after_deploy:
   - echo "$TRAVIS_TAG and $TRAVIS_BUILD_NUMBER"
 
-branches:
-  except:
-    - /^*-v[0-9]/
+#branches:
+#  except:
+#    - /^*-v[0-9]/
