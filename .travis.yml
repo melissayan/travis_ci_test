@@ -13,18 +13,6 @@ script:
   - export VERSION=""
   - mvn -Djar.finalName=$JARNAME -Dversion=$VERSION clean verify
 
-after_success:
-  - git describe --tags $(git rev-list --tags --max-count=1)
-  - git for-each-ref refs/tags --sort=-taggerdate --format='%(refname)' --count=1
-  - git tag -l
-  - echo "$TRAVIS_TAG and $TRAVIS_BUILD_NUMBER"
-  - export JARFILE="$JARNAME-v$VERSION.jar"
-  - echo "$JARNAME and $JARFILE"
-  - cp target/$JARNAME-$VERSION.jar target/$JARFILE
-  - echo "$TRAVIS_TAG and $TRAVIS_BUILD_NUMBER"
-  - git tag v$TRAVIS_BUILD_NUMBER -a -m "Travis build $TRAVIS_BUILD_NUMBER pushed a tag."
-  #- git push origin --tags
-  - git push origin v$TRAVIS_BUILD_NUMBER
 
 deploy:
   skip_cleanup: true
