@@ -25,3 +25,4 @@ deploy:
   on:
     repo: melissayan/travis_ci_test
     branch: travis-branch
+    tags: true
