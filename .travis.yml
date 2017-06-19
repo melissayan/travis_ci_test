@@ -13,6 +13,7 @@ script:
   - mvn -Djar.finalName=$JARNAME -Dversion=$VERSION clean verify
 
 after_success:
+  - echo $TRAVIS_TAG
   - export JARFILE="$JARNAME-v$VERSION.jar"
   - cp target/$JARNAME-$VERSION.jar target/$JARFILE
 
