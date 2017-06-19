@@ -13,14 +13,14 @@ script:
   - mvn -Djar.finalName=$JARNAME -Dversion=$VERSION clean verify
 
 after_success:
-  - echo $TRAVIS_TAG
+  - echo ${TRAVIS_TAG}
   - export JARFILE="$JARNAME-v$VERSION.jar"
   - cp target/$JARNAME-$VERSION.jar target/$JARFILE
 
 deploy:
   skip_cleanup: true
   provider: releases
-  api_key: $TRAVIS_CI_DEPLOY_KEY
+  api_key: ${TRAVIS_CI_DEPLOY_KEY}
   file: target/$JARNAME-$VERSION.jar
   on:
     repo: melissayan/travis_ci_test
