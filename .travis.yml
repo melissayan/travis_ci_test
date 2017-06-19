@@ -23,15 +23,14 @@ after_success:
   - git push deploy
   - cp target/$JARNAME-$VERSION.jar target/$JARFILE
   - echo "$TRAVIS_TAG and $TRAVIS_BUILD_NUMBER"
-  - git tag v$TRAVIS_BUILD_NUMBER -a -m "Travis build $TRAVIS_BUILD_NUMBER pushed a
-  tag."
+  - git tag v$TRAVIS_BUILD_NUMBER -a -m "Travis build $TRAVIS_BUILD_NUMBER pushed a tag."
   - git push origin v$TRAVIS_BUILD_NUMBER
 
 deploy:
   skip_cleanup: true
   provider: releases
   api_key:
-    secure: "$TRAVIS_CI_DEPLOY_KEY_GIT"
+    secure: $encrypted_d6cb3e44f727_key
   file:
     - target/$JARFILE
     - target/$JARNAME-$VERSION.jar
