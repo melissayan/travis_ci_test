@@ -29,7 +29,7 @@ deploy:
   skip_cleanup: true
   provider: releases
   api_key:
-    secure: $TRAVIS_CI_OAUTH_TOKEN
+    secure: $TRAVIS_CI_DEPLOY_KEY
   file: #target/travis-build-test-1.0-SNAPSHOT.jar
     - target/$JARFILE
     - target/$JARNAME-$VERSION.jar
